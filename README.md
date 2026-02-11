@@ -266,3 +266,15 @@ Use this bibtex if you want to cite this repository:
 
 # Reference
 "[We don't need no bounding-boxes: Training object class detectors using only human verification](https://arxiv.org/abs/1602.08405)"Papadopolous et al., CVPR 2016.
+
+# Test
+```bash
+python main.py downloader \
+--classes Monkey Mammal \
+--type_csv all \
+--limit 10000 \
+--image_IsGroupOf 0 \
+--image_IsOccluded 0 \
+--image_IsDepiction 0 \
+--n_threads 10
+```
