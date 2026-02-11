@@ -278,3 +278,9 @@ python main.py downloader \
 --image_IsDepiction 0 \
 --n_threads 10
 ```
+```bash
+python main.py visualizer
+```
+```bash
+python convert_annotations.py
+```
