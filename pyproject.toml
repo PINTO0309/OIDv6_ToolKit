@@ -29,5 +29,5 @@ dependencies = [
     "s3transfer==0.16.0",
     "six==1.17.0",
     "tqdm==4.67.3",
-    "urllib3==1.25.11",
+    "urllib3==1.26.18",
 ]

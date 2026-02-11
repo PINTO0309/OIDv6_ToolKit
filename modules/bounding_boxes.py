@@ -20,6 +20,10 @@ def bounding_boxes_images(args, DEFAULT_OID_DIR):
 
 	if args.command == 'downloader':
 
+		if args.sub is not None:
+			print(bc.FAIL + "'--sub' is only supported by 'downloader_ill'." + bc.ENDC)
+			exit(1)
+
 		logo(args.command)
 
 		if args.type_csv is None:
