@@ -270,7 +270,7 @@ Use this bibtex if you want to cite this repository:
 # Test
 ```bash
 python main.py downloader \
---classes Monkey Mammal \
+--classes Monkey \
 --type_csv all \
 --limit 10000 \
 --image_IsGroupOf 0 \
