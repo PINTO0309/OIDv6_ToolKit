@@ -1,5 +1,5 @@
 <h1> Forked from theAIGuysCode repository and added ability to download OIDv6 vs OIDv4 </h1>
-Changed scripts is: 
+Changed scripts is:
 <strong>csv_downloader.py</strong>
 <strong>utils.py</strong>
 <strong>requirements.txt</strong>
@@ -68,26 +68,27 @@ Finally, it's interesting to notice that not all annotations has been produced b
 
 ## 1.1 Installation
 
-Python3 is required.
-
 1. Clone this repository
    ```bash
-   git clone https://github.com/Bukkster/OIDv6_ToolKit.git
+   git clone https://github.com/PINTO0309/OIDv6_ToolKit.git
    ```
 2. Install the required packages
    ```bash
-   pip3 install -r requirements.txt
+   cd OIDv6_ToolKit
+   uv venv -p 3.12.12 .venv
+   source .venv/bin/activate
+   uv sync
    ```
 Peek inside the requirements file if you have everything already installed. Most of the dependencies are common libraries.
 
 ## 1.2 Launch the ToolKit to check the available options
 First of all, if you simply want a quick reminder of al the possible options given by the script, you can simply launch, from your console of choice, the [main.py](main.py). Remember to point always at the main directory of the project
    ```bash
-   python3 main.py
+   python main.py
    ```
 or in the following way to get more information
    ```bash
-   python3 main.py -h
+   python main.py -h
    ```
 
 # 2.0 Use the ToolKit to download images for Object Detection
@@ -106,7 +107,7 @@ Example: `Polar_bear`.
 
 Let's for example download Apples and Oranges from the validation set. In this case we have to use the following command.
   ```bash
-   python3 main.py downloader --classes Apple Orange --type_csv validation
+   python main.py downloader --classes Apple Orange --type_csv validation
    ```
 The algorith will take care to download all the necessary files and build the directory structure like this:
 
@@ -163,7 +164,7 @@ This option allows to download more classes, but in a common folder. Also the re
 
 Again if we want to download Apple and Oranges, but in a common folder
   ```bash
-   python3 main.py downloader --classes Apple Orange --type_csv validation --multiclasses 1
+   python main.py downloader --classes Apple Orange --type_csv validation --multiclasses 1
    ```
 
 ### Annotations
@@ -196,14 +197,14 @@ The annotations of the dataset has been marked with a bunch of boolean values. T
 Naturally, the ToolKit provides the same options as paramenters in order to filter the downloaded images.
 For example, with:
   ```bash
-   python3 main.py downloader -y --classes Apple Orange --type_csv validation --image_IsGroupOf 0
+   python main.py downloader -y --classes Apple Orange --type_csv validation --image_IsGroupOf 0
    ```
 only images without group annotations are downloaded.
 
 # 3.0 Download images from Image-Level Labels Dataset for Image Classifiction
 The Toolkit is now able to acess also to the huge dataset without bounding boxes. This dataset is formed by 19,995 classes and it's already divided into train, validation and test. The command used for the download from this dataset is ```downloader_ill``` (Downloader of Image-Level Labels) and requires the argument ```--sub```. This argument selects the sub-dataset between human-verified labels ```h``` (5,655,108 images) and machine-generated labels ```m``` (8,853,429 images). An example of command is:
 ```bash
-python3 main.py downloader_ill --sub m --classes Orange --type_csv train --limit 30
+python main.py downloader_ill --sub m --classes Orange --type_csv train --limit 30
 ```
 The previously explained commands ```Dataset```, ```multiclasses```, ```n_threads``` and ```limit``` are available.
 The Toolkit automatically will put the dataset and the csv folder in specific folders that are renamed with a `_nl` at the end.
@@ -231,12 +232,12 @@ R = required, O = optional
 # 4.0 Use the ToolKit to visualize the labeled images
 The ToolKit is useful also for visualize the downloaded images with the respective labels.
 ```bash
-   python3 main.py visualizer
+   python main.py visualizer
    ```
   In this way the default `Dataset` folder will be pointed to search the images and labels automatically. To point
   another folder it's possible to use `--Dataset` optional argument.
 ```bash
-   python3 main.py visualizer --Dataset desired_folder
+   python main.py visualizer --Dataset desired_folder
    ```
 Then the system will ask you which folder to visualize (train, validation or test) and the desired class.
 Hence with `d` (next), `a` (previous) and `q` (exit) you will be able to explore all the images. Follow the menu for all the other options.
