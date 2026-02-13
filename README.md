@@ -270,6 +270,7 @@ Use this bibtex if you want to cite this repository:
 
 # Test
 ```bash
+# Do not specify `--sub` as this will not generate labels.
 python main.py downloader \
 --classes Monkey \
 --type_csv all \
